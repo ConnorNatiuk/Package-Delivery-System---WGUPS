@@ -1,9 +1,7 @@
 class Hash_Table:
 
     def __init__(self, capacity):
-        self.table = []
-        for i in range(capacity):
-            self.table.append([])
+        self.table = [[] for _ in range(capacity)]
 
     def _get_hash(self, key):
         return int(key) % len(self.table)
@@ -28,7 +26,7 @@ class Hash_Table:
             if bucket[i][0] == package_id:
                 return bucket[i][1]
         
-        return None;
+        return None
 
 
 
