@@ -6,7 +6,6 @@ class Hash_Table:
     def _get_hash(self, key):
         return int(key) % len(self.table)
 
-
     def insert(self, package_id, package_details):
         hash_key = self._get_hash(package_id)
         bucket = self.table[hash_key]
