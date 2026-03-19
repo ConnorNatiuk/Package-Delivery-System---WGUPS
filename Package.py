@@ -1,3 +1,5 @@
+import csv
+
 class Package:
 
     def __init__(self, package_id, package_address, package_city, package_state,
@@ -11,4 +13,8 @@ class Package:
         self.package_weight = package_weight
         self.special_notes = special_notes
         self.delivery_status = delivery_status
+
+    def __str__(self):
+        return (f"Package_ID: {self.package_id:3} | Address: {self.package_address:40} | Status: {self.delivery_status:20} | Notes: {self.special_notes:70}")
+        
                 
