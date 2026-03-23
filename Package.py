@@ -1,5 +1,3 @@
-import csv
-
 class Package:
 
     def __init__(self, package_id, package_address, package_city, package_state,
@@ -14,7 +12,14 @@ class Package:
         self.special_notes = special_notes
         self.delivery_status = delivery_status
 
+        self.package_address_index = None
+        self.departure_time = None
+        self.delivery_time = None
+
     def __str__(self):
-        return (f"Package_ID: {self.package_id:3} | Address: {self.package_address:40} | Status: {self.delivery_status:20} | Notes: {self.special_notes:70}")
+        departure_str = self.departure_time.strftime("%H:%M") if self.departure_time else "N/A"
+        delivery_str = self.delivery_time.strftime("%H:%M") if self.delivery_time else "N/A"
+        address_str = str(self.package_address_index) if self.package_address_index is not None else "N/A"
+        return (f"Package_ID: {self.package_id:3} | Address: {self.package_address:40} | Status: {self.delivery_status:20} | Notes: {self.special_notes:70} | Departed: {departure_str:5} -- Arrived: {delivery_str:5} | Address index: {address_str:3}")
         
                 

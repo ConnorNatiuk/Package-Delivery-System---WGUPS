@@ -1,4 +1,4 @@
-from datetime import datetime, time
+from datetime import datetime, timedelta
 
 
 class Truck:
@@ -13,6 +13,30 @@ class Truck:
         self.truck_speed = truck_speed
         self.truck_capacity = truck_capacity
         self.is_empty = True
-        self.start_time = time(hour=8,minute=0)
+        self.current_time = datetime(2026, 3, 5, 8, 0, 0, 0)
+        self.current_location = 0 #The Hub
+    
+    def load_package(self, package):
+        if len(self.truck_packages) == self.truck_capacity:
+           print("Your truck is full!")
+           return False
+        else:
+           self.truck_packages.append(package)
+           self.is_empty = False
+           return True
+    
+    def get_minutes_traveled(self, distance_traveled):
+        miles_per_minute = 0.3
+        time_taken = distance_traveled / miles_per_minute
+        return time_taken
+    
+    def drive_to_address(self, traveled_distance, next_location):
+        self.truck_mileage += traveled_distance
+        time_taken = self.get_minutes_traveled(traveled_distance)
+        self.current_time += timedelta(minutes=time_taken)
+
+        self.current_location = next_location
+
+
 
     
