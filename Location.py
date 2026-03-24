@@ -2,11 +2,6 @@ class Location:
 
     """
     DESC: Represents a location derived from the Locations.csv file in /Data
-
-    Attributes:
-        location_id (int): An identification number for a location
-        location_name (str): The name of the location
-        location_address (str): The street address of the location
     """
     
     def __init__(self, location_id, location_name, location_address):
@@ -14,10 +9,11 @@ class Location:
         """
         Initializes a new location instance.
 
-        ARGS:
-            location_id: the identifier as an integer
-            location_name: the name of the location as a string
-            location_address: the street address of the location as a string
+        
+        Args:
+            location_id (int): The identification number for a location
+            location_name (str): The name of the location
+            location_address (str): The street address of the location
         """
 
         self.location_id = location_id
@@ -29,5 +25,5 @@ class Location:
         """
         Returns a formatted string with the location_id, location_name, and location_address.
         """
-        
+
         return (f"ID: {self.location_id:3} | Name: {self.location_name:30} | Address: {self.location_address:30}")
