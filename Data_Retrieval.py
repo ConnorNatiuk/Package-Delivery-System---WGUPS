@@ -29,8 +29,6 @@ class Data_Retrieval:
                         break
                     
                 hash_table.insert(package_id, package)
-
-        print("Successfully loaded packages")
     
     def get_distance_data(self, file):
         distance_list = []
@@ -41,8 +39,6 @@ class Data_Retrieval:
 
             for row in distance_data:
                 distance_list.append(row)
-        
-        print("Successfully loaded distances")
         return distance_list
     
     def get_location_data(self, file, hash_table):
@@ -61,8 +57,6 @@ class Data_Retrieval:
 
                 hash_table.insert(location_id, location)
                 location_list.append(location_address)
-            
-        print("Successfully loaded locations")
         return location_list
     
     def get_distance_between(self, address_1, address_2, distance_list):

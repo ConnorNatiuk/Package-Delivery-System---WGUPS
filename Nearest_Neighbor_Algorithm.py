@@ -1,7 +1,7 @@
 from Data_Retrieval import Data_Retrieval
 from datetime import timedelta
 
-class NearestNeighborAlgorithm:
+class Nearest_Neighbor_Algorithm:
 
     def __init__(self, distance_info, location_info):
         self.distance_info = distance_info
@@ -32,8 +32,12 @@ class NearestNeighborAlgorithm:
             current_truck.current_time += timedelta(minutes=minutes_traveled)
             current_location = next_package.package_address_index
 
-            next_package.delivery_status = "Delivered!"
+            next_package.delivery_status = "Delivered"
             next_package.delivery_time = current_truck.current_time
 
             locations_unvisited.remove(next_package)
-            print(f"Delivered -> {next_package}")
+            # print(f"Delivered -> {next_package}")
+        
+        distance_back = retrieval_obj.get_distance_between(current_location, 0, distance_list)
+        current_truck.truck_mileage += float(distance_back)
+        current_truck.current_location = 0
