@@ -4,7 +4,7 @@ from datetime import timedelta
 class Nearest_Neighbor_Algorithm:
     """
     DESC: A greedy heuristic that iteratively looks for the nearest location in a list of unvisited locations,
-    and delivers the corresponding package. It updates truck information, delivery status, delivery time. Once all
+    and delivers the corresponding package. It updates truck information, delivery status, and delivery time. Once all
     packages have been delivered, it calculates and updates the time and mileage it takes to drive back to the hub.
     """
 
