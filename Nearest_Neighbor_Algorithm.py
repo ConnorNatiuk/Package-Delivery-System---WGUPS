@@ -26,7 +26,6 @@ class Nearest_Neighbor_Algorithm:
         """
         Implements the logic of a Nearest Neighbor Algorithm to deliver packages on any given truck.
         Passes in a distance list to figure out the next location, track mileage, and update time.
-        
         """
 
         retrieval_obj = Data_Retrieval() #Creates a data retrieval object
@@ -62,6 +61,6 @@ class Nearest_Neighbor_Algorithm:
         When all packages for the specific truck are delivered, the final snippet calculates the distance back to the hub,
         else the truck would be out in the middle of nowhere and the final mileage would be wrong.
         """
-        distance_back = retrieval_obj.get_distance_between(current_location, 0, distance_list)
-        current_truck.truck_mileage += float(distance_back)
-        current_truck.current_location = 0
+        distance_back = retrieval_obj.get_distance_between(current_location, 0, distance_list) #Calculates the distance back to the hub from whatever current location the truck is at
+        current_truck.truck_mileage += float(distance_back) #Adds the mileage for the distance back to the hub
+        current_truck.current_location = 0 #Sets the trucks location back to the hub
