@@ -45,6 +45,6 @@ class Package:
 
         departure_str = self.departure_time.strftime("%H:%M") if self.departure_time else "N/A" #Creates a formatted string for the departure time only including the hour and minute.
         delivery_str = self.delivery_time.strftime("%H:%M") if self.delivery_time else "N/A" #Creates a formatted string for the delivery time only including the hour and minute.
-        address_str = str(self.package_address_index) if self.package_address_index is not None else "N/A"
+        # address_str = str(self.package_address_index) if self.package_address_index is not None else "N/A"
         return (f"Package ID: {self.package_id:3} | Address: {self.package_address:40} | Departed: {departure_str:5} -- Arrived: {delivery_str:5}")
         
