@@ -1,3 +1,9 @@
+"""
+CREATED BY: Connor Natiuk
+For C950, Data Structures and Algorithms II
+STUDENT ID: 012461689
+"""
+
 from Hash_Table import Hash_Table
 from Data_Retrieval import Data_Retrieval
 from Truck import Truck
