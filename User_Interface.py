@@ -110,6 +110,11 @@ class User_Interface:
 
         for package in range(1, 41):
             curr_package = self.package_hash_table.lookup_data(package)
+            if "Delayed" in curr_package.special_notes:
+                if selected_time < datetime(2026, 3, 5, 9, 5, 0):
+                    package_status = "Delayed"
+                    print(f"Package ID: {curr_package.package_id:3} | Address: {curr_package.package_address:40} | Status: {package_status:20}")
+                    continue
             if curr_package.package_id == 9:
                 if selected_time < datetime(2026, 3, 5, 10, 20, 0):
                     curr_package.package_address = "300 State St"
