@@ -113,7 +113,7 @@ class User_Interface:
             if "Delayed" in curr_package.special_notes:
                 if selected_time < datetime(2026, 3, 5, 9, 5, 0):
                     package_status = "Delayed"
-                    print(f"Package ID: {curr_package.package_id:3} | Address: {curr_package.package_address:40} | Status: {package_status:20}")
+                    print(f"Package ID: {curr_package.package_id:3} | Address: {curr_package.package_address:40} | Truck: N/A        | Status: {package_status:20}") ### Checks if there is a delayed special note inside of the packages list
                     continue
             if curr_package.package_id == 9:
                 if selected_time < datetime(2026, 3, 5, 10, 20, 0):
@@ -131,9 +131,9 @@ class User_Interface:
             curr_package.delivery_status = package_status #Changes the current packages delivery status based on the previous branches
             if curr_package.delivery_status == "Delivered":
                 delivery_str = curr_package.delivery_time.strftime("%H:%M") if curr_package.delivery_time else "N/A"
-                print(f"Package ID: {curr_package.package_id:3} | Address: {curr_package.package_address:40} | Status: {curr_package.delivery_status:} at {delivery_str}") #If the package is delivered, this displays the delivery time.
+                print(f"Package ID: {curr_package.package_id:3} | Address: {curr_package.package_address:40} | Truck: N/A        | Status: {curr_package.delivery_status:} at {delivery_str}") #If the package is delivered, this displays the delivery time.
                 continue
-            print(f"Package ID: {curr_package.package_id:3} | Address: {curr_package.package_address:40} | Status: {curr_package.delivery_status:20}") #If it is not delivered, it displays the package information in this format.
+            print(f"Package ID: {curr_package.package_id:3} | Address: {curr_package.package_address:40} | Truck: {curr_package.current_truck:10} | Status: {curr_package.delivery_status:20}") #If it is not delivered, it displays the package information in this format.
 
     def get_specific_package_information(self):
 

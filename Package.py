@@ -36,6 +36,7 @@ class Package:
         self.package_address_index = None
         self.departure_time = None
         self.delivery_time = None
+        self.current_truck = None
 
     def __str__(self):
 

@@ -36,7 +36,7 @@ def logic():
     algorithm = Nearest_Neighbor_Algorithm(distance_list, location_table) #Instantiates an instance of the main algorithm
 
     truck_two_start_time = datetime(2026, 3, 5, 9, 5, 0) #Sets start time for truck 2
-    TRUCK_TWO.current_time = truck_two_start_time + timedelta(minutes=5) #Adds 5 minutes for loading time
+    TRUCK_TWO.current_time = truck_two_start_time 
 
     truck_one_package_ids = [1, 2, 4, 5, 13, 14, 15, 16, 19, 20, 29, 30, 31, 34, 37, 40]
     truck_two_package_ids = [3, 6, 7, 8, 10, 11, 12, 17, 18, 21, 22, 25, 28, 32, 36, 38] ### LISTS VALID PACKAGES FOR EACH TRUCK BASED ON CONDITIONS ###
@@ -48,7 +48,8 @@ def logic():
         """
         current_package = package_hash_table.lookup_data(package)
         current_package.delivery_status = "En Route"
-        current_package.departure_time = TRUCK_ONE.current_time + timedelta(minutes=5) #Adds 5 minutes to initial time for loading and departure
+        current_package.current_truck = "Truck 1"
+        current_package.departure_time = TRUCK_ONE.current_time 
         TRUCK_ONE.load_package(current_package)
     
     for package in truck_two_package_ids:
@@ -57,6 +58,7 @@ def logic():
         """
         current_package = package_hash_table.lookup_data(package)
         current_package.delivery_status = "En Route"
+        current_package.current_truck = "Truck 2"
         current_package.departure_time = TRUCK_TWO.current_time
         TRUCK_TWO.load_package(current_package)
 
@@ -75,7 +77,8 @@ def logic():
             current_package.package_zip = "84111"
             current_package.package_address_index = 19
         current_package.delivery_status = "En Route"
-        current_package.departure_time = TRUCK_THREE.current_time #5 minutes for loading and departure already accounted for
+        current_package.current_truck = "Truck 3"
+        current_package.departure_time = TRUCK_THREE.current_time 
         TRUCK_THREE.load_package(current_package)
     
     algorithm.deliver_packages(TRUCK_THREE, distance_list) #DELIVERS THE THIRD TRUCK'S PACKAGES
